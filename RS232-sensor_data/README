@@ -1,0 +1,107 @@
+These scripts allow capturing, processing, and
+plotting results from sensor module/uP unit.
+
+
+REQUIRES:
+=======================================
+ * Perl File::Tail
+
+
+NOTES:
+=======================================
+ * Using default winsize=50
+ * cd /Users/ali/sensor2/RS232-sensor_data
+   export PATH=$PWD:$PATH
+
+
+Matlab real-time plotting:
+=======================================
+
+	1. connect module board to PC -> RS232
+
+	2. Start Matlab and run RealTimeSensorData.m
+
+	   - This does the parsing of raw/avg/deriv data and plots in
+	     Matlab figure.
+
+
+USAGE:
+=======================================
+To plot data in real-time on PC:
+
+	1. connect module board to PC -> RS232
+
+	2. capture data:
+		watch.sh -c [senbin file]
+
+	3. process data, as blocking call:
+		watch.sh -p [senbin file] | {[filter]} > [file].csv
+		or, pwatch.pl -b -c -f [senbin file] | {[filter]} > [file].csv
+
+	   or as non-blocking (if processing a previously captured sensor binary file):
+		pwatch.pl -c -f [senbin file] | {[filter]} > [file].csv
+
+	   where {[filter]} = 'csv_winavg.pl -w 50 | csv_derivative.pl -w 5'
+
+	4. plot csv data file in LiveGraph, update speed at 100Hz
+
+	5. To plot using plotit.pl, pass CSV file thru csv2plotit.sh to convert formats
+
+
+DBG_CONST_ADC_ADJUST:
+=======================================
+This mode allows for changing movement cfg variables in real time. Mode 0 dumps variables
+to serial port.
+
+	1. start a serial capture:
+		./watch.sh -c [senbin file]
+
+	2. parse the ascii-encoded variables:
+		./movement_cfg_dump.pl -f [senbin]
+
+
+GYRO STEERING:
+=======================================
+To view gyro position, take avg results and integrate,
+
+	1. start a capture:
+		./watch.sh -c [senbin file]
+
+	2. parse and produce integral:
+		./watch.sh -p [senbin file] | get_csv_column.rb gyro_curr | ./csv_integral.pl > [file].csv
+
+	3. plot csv data file in LiveGraph
+
+	4. or, in plotit.pl (already captured senbin file):
+		./pwatch.pl -c -f [senbin file] | get_csv_column.rb gyro_curr | ./csv_integral.pl | uniq | csv2plotit.sh | plotit.pl
+
+
+Or, you can send out IAgS (24bit) on each timer0=5 for inspection. I used send232_char(0xff0000),send232_char(0x00ff00),send232_char(0x0000ff) at top of main,
+
+	1. ./watch.sh -c IAgS.ascii
+
+	2. tail -f IAgS.ascii | ./twosconvert.pl -b 24  > IAgs.csv
+
+	3. Plot in LiveGraph
+
+
+MISC:
+=======================================
+Can also view plotit.pl plots using watch:
+	watch.sh -X [file] {[CSV fields]}
+
+To convert a CSV-format to plotit.pl-format:
+	cat [file].csv | csv2plotit.sh | plotit.pl
+
+To plotit.pl an averaged CSV file:
+	pwatch.pl -c -f [file] | csv_winavg.pl -w 50 | csv2plotit.sh | plotit.pl -T "Avg [file]"
+
+To plot all saved sensor binary files (.senbin) in plotit.pl:
+	plot_all.sh
+
+To plotit.pl an averaged CSV for only certain fields (NOTE: get_csv MUST come after csv_winavg):
+	pwatch.pl -c -f [file] | csv_winavg.pl -w 50 | get_csv_column.rb [fields] | csv2plotit.sh | plotit.pl
+
+To plotit.pl an averaged & delta'd CSV for only certain fields (NOTE: get_csv MUST come after csv_winavg|cvs_derivative):
+	pwatch.pl -c -f [file] | csv_winavg.pl -w 50 | csv_derivative.pl | get_csv_column.rb [fields] | csv2plotit.sh | plotit.pl
+

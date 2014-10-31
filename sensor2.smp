@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?><dsPIC30FSMPSBuck>
+	<Parameters>
+		<Basic>
+			<Param Dlg="1" IDC="1025" Name="Minumum Input Voltage" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min> 8</Min>
+				<Max> 14</Max>
+				<Default>8</Default>
+				<Value>8</Value>
+			</Param>
+			<Param Dlg="1" IDC="1026" Name="Maximum Input Voltage" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>9</Min>
+				<Max>15 </Max>
+				<Default>10</Default>
+				<Value>10</Value>
+			</Param>
+			<Param Dlg="1" IDC="1021" Name="Number of Phases" TTip="Name" Type="COMBO">
+				<Item> <Display>2</Display> <Code>2</Code>  </Item>
+				<Default>2</Default>
+				<Value>2</Value>
+				<Code>2</Code> 				
+			</Param>
+			<Param Dlg="1" IDC="1027" Name="Output Voltage 1" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>1</Min>
+				<Max>6 </Max>
+				<Default>5</Default>
+				<Value>5</Value>
+			</Param>
+			<Param Dlg="1" IDC="1028" Name="Output Current 1" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.1</Min>
+				<Max>1 </Max>
+				<Default>1</Default>
+				<Value>1</Value>
+			</Param>
+			<Param Dlg="1" IDC="1029" Name="Output Voltage 2" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>1 </Min>
+				<Max>6 </Max>
+				<Default>3.3</Default>
+				<Value>3.3</Value>
+			</Param>
+			<Param Dlg="1" IDC="1030" Name="Output Current 2" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.1</Min>
+				<Max>1 </Max>
+				<Default>1</Default>
+				<Value>1</Value>
+			</Param>
+			<Param Dlg="1" IDC="1031" Name="Multi-Phase" TTip="When selected this enables the buck circuits to act in multi-phase mode (vs having independent outputs)" Type="CHECK">
+				<Default>0</Default>
+				<Value>0</Value>
+			</Param>
+		</Basic>
+		<Advanced>
+			<!-- Soft Startup Config -->
+			<Param Dlg="1" Group="Soft Startup" IDC="1022" Name="Start Delay 1" TTip="Wait time before startup ramp begins for Buck 1" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0</Min>
+				<Max>0.05 </Max>
+				<Default>0.01</Default>
+				<Value>0.01</Value>
+			</Param>
+			<Param Dlg="1" Group="Soft Startup" IDC="1023" Name="Ramp Duration 1" TTip="Soft Startup ramp duration for Buck 1" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0.002 </Min>
+				<Max>0.2 </Max>
+				<Default>0.1</Default>
+				<Value>0.1</Value>
+			</Param>
+			<Param Dlg="1" Group="Soft Startup" IDC="1024" Name="Start Delay 2" TTip="Wait time before startup ramp begins for Buck 2" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0</Min>
+				<Max>0.05 </Max>
+				<Default>0.01</Default>
+				<Value>0.01</Value>
+			</Param>
+			<Param Dlg="1" Group="Soft Startup" IDC="1032" Name="Ramp Duration 2" TTip="Soft Startup ramp duration for Buck 2" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0.002 </Min>
+				<Max>0.2 </Max>
+				<Default>0.1</Default>
+				<Value>0.1</Value>
+			</Param>
+			<!-- PWM Config -->
+			<Param Dlg="1" Group="PWM Configuration" IDC="1033" Name="PWM Frequency" TTip="Name" Type="TEXT">
+				<Unit>kHz</Unit>
+				<Min>200</Min>
+				<Max>500 </Max>
+				<Default>400</Default>
+				<Value>400</Value>
+			</Param>
+			<Param Dlg="1" Group="PWM Configuration" IDC="1010" Name="Rising Edge Deadtime Buck 1" TTip="Buck 1 deadtime for rising edge of high-side MOSFET " Type="TEXT">
+				<Unit>nsec</Unit>
+				<Min>50</Min>
+				<Max>200 </Max>
+				<Default>128</Default>
+				<Value>128</Value>
+			</Param>
+			<Param Dlg="1" Group="PWM Configuration" IDC="1034" Name="Falling Edge Deadtime Buck 1" TTip="Buck 1 deadtime for falling edge of high-side MOSFET" Type="TEXT">
+				<Unit>nsec</Unit>
+				<Min>50</Min>
+				<Max>200 </Max>
+				<Default>128</Default>
+				<Value>128</Value>
+			</Param>
+			<Param Dlg="1" Group="PWM Configuration" IDC="1035" Name="Rising Edge Deadtime Buck 2" TTip="Buck 2 deadtime for rising edge of high-side MOSFET" Type="TEXT">
+				<Unit>nsec</Unit>
+				<Min>50</Min>
+				<Max>200 </Max>
+				<Default>128</Default>
+				<Value>128</Value>
+			</Param>
+			<Param Dlg="1" Group="PWM Configuration" IDC="1036" Name="Falling Edge Deadtime Buck 2" TTip="Buck 2 deadtime for falling edge of high-side MOSFET" Type="TEXT">
+				<Unit>nsec</Unit>
+				<Min>50</Min>
+				<Max>200 </Max>
+				<Default>128</Default>
+				<Value>128</Value>
+			</Param>
+			<!-- Feedback Config -->
+			<Param Dlg="1" Group="Feedback Configuration" IDC="1037" Name="Vout 1 Sense Gain" TTip="Ratio of dsPIC DSC pin voltage to Buck 1 output voltage" Type="TEXT">
+				<Unit>V/V</Unit>
+				<Min>0.1</Min>
+				<Max>1 </Max>
+				<Default>0.5</Default>
+				<Value>0.5</Value>
+			</Param>
+			<Param Dlg="1" Group="Feedback Configuration" IDC="1014" Name="Vout 2 Sense Gain" TTip="Ratio of dsPIC DSC pin voltage to Buck 2 output voltage" Type="TEXT">
+				<Unit>V/V</Unit>
+				<Min>0.1</Min>
+				<Max>1 </Max>
+				<Default>0.5</Default>
+				<Value>0.5</Value>
+			</Param>
+			<Param Dlg="1" Group="Feedback Configuration" IDC="1015" Name="Average Output Current 1 Sense Gain" TTip="Ratio of dsPIC DSC pin voltage to Buck 1 average current" Type="TEXT">
+				<Unit>V/A</Unit>
+				<Min>0.25</Min>
+				<Max>5 </Max>
+				<Default>1.25</Default>
+				<Value>1.25</Value>
+			</Param>
+			<Param Dlg="1" Group="Feedback Configuration" IDC="1016" Name="Average Output Current 2 Sense Gain" TTip="Ratio of dsPIC DSC pin voltage to Buck 2 average current" Type="TEXT">
+				<Unit>V/A</Unit>
+				<Min>0.25</Min>
+				<Max>5 </Max>
+				<Default>1.25</Default>
+				<Value>1.25</Value>
+			</Param>
+			<Param Dlg="1" Group="Feedback Configuration" IDC="1017" Name="Vin Sense Gain" TTip="Ratio of dsPIC DSC pin voltage to input voltage" Type="TEXT">
+				<Unit>V/V</Unit>
+				<Min>0.1</Min>
+				<Max>1 </Max>
+				<Default>0.25</Default>
+				<Value>0.25</Value>
+			</Param>
+			<!-- Fault Config -->
+			<Param Dlg="2" Group="Fault Configuration" IDC="1038" Name="Buck 1 Fault Source" TTip="Name" Type="COMBO">
+				<Item> <Display>No Source</Display> <Code>NoSource</Code> </Item>
+				<Item> <Display>Comparator 1</Display> <Code>Comparator1</Code> </Item>
+				<Item> <Display>SFLT2 Shared Fault Pin</Display> <Code>SFLT2SharedFaultPin</Code> </Item>
+				<Default>No Source</Default>
+				<Value>No Source</Value>
+				<Code>NoSource</Code>
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1006" Name="Buck 2 Fault Source" TTip="Name" Type="COMBO">
+				<Item> <Display>No Source</Display> <Code>NoSource</Code> </Item>
+				<Item> <Display>Comparator 2</Display> <Code>Comparator2</Code> </Item>
+				<Item> <Display>SFLT2 Shared Fault Pin</Display> <Code>SFLT2SharedFaultPin</Code> </Item>
+				<Default>No Source</Default>
+				<Value>No Source</Value>
+				<Code>NoSource</Code>
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1008" Name="Universal Fault Source" TTip="Name" Type="COMBO">
+				<Item> <Display>No Source</Display> <Code>NoSource</Code> </Item>
+				<Item> <Display>Comparator 4</Display> <Code>Comparator4</Code> </Item>
+				<Default>No Source</Default>
+				<Value>No Source</Value>
+				<Code>NoSource</Code>				
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1007" Name="Buck 1 Fault Response" TTip="Name" Type="COMBO">
+				<Item> <Display>Cycle-By-Cycle</Display> <Code>CycleByCycle</Code> </Item>
+				<Item> <Display>Shutdown</Display> <Code>Shutdown</Code> </Item>
+				<Default>Cycle-By-Cycle</Default>
+				<Value>Cycle-By-Cycle</Value>
+				<Code>CycleByCycle</Code>				
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1009" Name="Buck 2 Fault Response" TTip="Name" Type="COMBO">
+				<Item> <Display>Cycle-By-Cycle</Display> <Code>CycleByCycle</Code> </Item>
+				<Item> <Display>Shutdown</Display> <Code>Shutdown</Code> </Item>
+				<Default>Cycle-By-Cycle</Default>
+				<Value>Cycle-By-Cycle</Value>
+				<Code>CycleByCycle</Code>				
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1039" Name="Delay before trying to re-start Buck 1" TTip="Time to wait before restarting Buck 1 (only valid if fault causes a shutdown)" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0.002</Min>
+				<Max>2 </Max>
+				<Default>0.01</Default>
+				<Value>0.01</Value>
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1040" Name="Delay before trying to re-start Buck 2" TTip="Time to wait before restarting Buck 2 (only valid if fault causes a shutdown)" Type="TEXT">
+				<Unit>sec</Unit>
+				<Min>0.002</Min>
+				<Max>2 </Max>
+				<Default>0.01</Default>
+				<Value>0.01</Value>
+			</Param>
+			<Param Dlg="2" Group="Fault Configuration" IDC="1041" Name="Buck Circuits Linked Enable" TTip="Check this to link buck circuits.  When linked, if one buck circuit receives a fault and shutdown, then the other buck supply(ies) must also shutdown." Type="CHECK">
+				<Default>0</Default>
+				<Value>0</Value>
+			</Param>
+			<!-- Comparator Config -->
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1020" Name="Comparator 1 Source" TTip="Comparator 1 Source and Test Condition" Type="COMBO">
+				<Item> <Display>Disabled</Display> <Code>Disabled</Code> </Item>
+				<Item> <Display>Iavg1 Over Current</Display> <Code>Iavg1OverCurrent</Code> </Item>
+				<Item> <Display>Vout1 Over Voltage</Display> <Code>Vout1OverVoltage</Code> </Item>
+				<Default>Iavg1 Over Current</Default>
+				<Value>Iavg1 Over Current</Value>
+				<Code>Iavg1OverCurrent</Code>				
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1045" Name="Comparator 2 Source" TTip="Comparator 2 Source and Test Condition" Type="COMBO">
+				<Item> <Display>Disabled</Display> <Code>Disabled</Code> </Item>
+				<Item> <Display>Iavg2 Over Current</Display> <Code>Iavg2OverCurrent</Code> </Item>
+				<Item> <Display>Vout2 Over Voltage</Display> <Code>Vout2OverVoltage</Code> </Item>
+				<Default>Iavg2 Over Current</Default>
+				<Value>Iavg2 Over Current</Value>
+				<Code>Iavg2OverCurrent</Code>				
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1046" Name="Comparator 4 Source" TTip="Comparator 4 Source and Test Condition" Type="COMBO">
+				<Item> <Display>Disabled</Display> <Code>Disabled</Code> </Item>
+				<Item> <Display>R30 Under Voltage</Display> <Code>R30UnderVoltage</Code> </Item>
+				<Item> <Display>R30 Over Voltage</Display> <Code>R30OverVoltage</Code> </Item>
+				<Default>Disabled</Default>
+				<Value>Disabled</Value>
+				<Code>Disabled</Code>				
+			</Param>
+			<!-- Comparator 1 Trip Level  has got three different set of Current values -->
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1011" Name="Comparator 1 Trip Level 1" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.002</Min>
+				<Max>1.3</Max>
+				<Default>1.3</Default>
+				<Value>1.3</Value>				
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1053" Name="Comparator 1 Trip Level 2" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.001</Min>
+				<Max>0.96</Max>
+				<Default>0.96</Default>
+				<Value>0.96</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1054" Name="Comparator 1 Trip Level 3" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.002</Min>
+				<Max> 1.3 </Max>
+				<Default>1.3</Default>
+				<Value>1.3</Value>	
+			</Param>
+			<!-- Comparator 1 Trip Level  has got three different set of Voltage values -->			
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1059" Name="Comparator 1 Trip Level 4" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.004</Min>
+				<Max> 3.3 </Max>
+				<Default>3.3</Default>
+				<Value>3.3</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1060" Name="Comparator 1 Trip Level 5" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.003</Min>
+				<Max>2.4</Max>
+				<Default>2.4</Default>
+				<Value>2.4</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1063" Name="Comparator 1 Trip Level 6" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.004</Min>
+				<Max>3.3</Max>
+				<Default>3.3</Default>
+				<Value>3.3</Value>	
+			</Param>			
+			<!-- Comparator 2 Trip Level  has got three different set of Current values -->
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1012" Name="Comparator 2 Trip Level 1" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.002</Min>
+				<Max>1.3</Max>
+				<Default>1.3</Default>
+				<Value>1.3</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1055" Name="Comparator 2 Trip Level 2" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.001</Min>
+				<Max>0.96</Max>
+				<Default>0.96</Default>
+				<Value>0.96</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1056" Name="Comparator 2 Trip Level 3" TTip="Name" Type="TEXT">
+				<Unit>A</Unit>
+				<Min>0.002</Min>
+				<Max> 1.3 </Max>
+				<Default>1.3</Default>
+				<Value>1.3</Value>	
+			</Param>
+			<!-- Comparator 2 Trip Level  has got three different set of Voltage values -->	
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1064" Name="Comparator 2 Trip Level 4" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.004</Min>
+				<Max> 3.3 </Max>
+				<Default>3.3</Default>
+				<Value>3.3</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1065" Name="Comparator 2 Trip Level 5" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.003</Min>
+				<Max>2.4</Max>
+				<Default>2.4</Default>
+				<Value>2.4</Value>	
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1066" Name="Comparator 2 Trip Level 6" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0.004</Min>
+				<Max>3.3</Max>
+				<Default>3.3</Default>
+				<Value>3.3</Value>	
+			</Param>				
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1013" Name="Comparator 4 Trip Level" TTip="Name" Type="TEXT">
+				<Unit>V</Unit>
+				<Min>0</Min>
+				<Max>2.5 </Max>
+				<Default>2.5</Default>
+				<Value>2.5</Value>
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1047" Name="Comparator 1 DAC Source" TTip="DAC Reference Voltage for Comparator 1" Type="COMBO">
+				<Item> <Display>1.2V Bandgap</Display> <Code>InternalBandgap</Code> </Item>
+				<Item> <Display>AVdd/2</Display> <Code>AVdd_div_2</Code> </Item>
+				<Item> <Display>External Reference</Display> <Code>ExternalReference</Code> </Item>
+				<Default>AVdd/2</Default>
+				<Value>AVdd/2</Value>
+				<Code>AVdd_div_2</Code>				
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1048" Name="Comparator 2 DAC Source" TTip="DAC Reference Voltage for Comparator 2" Type="COMBO">
+				<Item> <Display>1.2V Bandgap</Display> <Code>InternalBandgap</Code> </Item>
+				<Item> <Display>AVdd/2</Display> <Code>AVdd_div_2</Code> </Item>
+				<Item> <Display>External Reference</Display> <Code>ExternalReference</Code> </Item>
+				<Default>AVdd/2</Default>
+				<Value>AVdd/2</Value>
+				<Code>AVdd_div_2</Code>				
+			</Param>
+			<Param Dlg="2" Group="Comparator Configuration" IDC="1049" Name="Comparator 4 DAC Source" TTip="DAC Reference Voltage for Comparator 4" Type="COMBO">
+				<Item> <Display>1.2V Bandgap</Display> <Code>InternalBandgap</Code> </Item>
+				<Item> <Display>AVdd/2</Display> <Code>AVdd_div_2</Code> </Item>
+				<Item> <Display>External Reference</Display> <Code>ExternalReference</Code> </Item>
+				<Default>AVdd/2</Default>
+				<Value>AVdd/2</Value>
+				<Code>AVdd_div_2</Code>				
+			</Param>
+		</Advanced>
+	</Parameters>
+</dsPIC30FSMPSBuck>
